@@ -85,6 +85,7 @@
       thisProduct.formInputs = thisProduct.form.querySelectorAll(select.all.formInputs);
       thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
+      thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
       console.log(thisProduct.priceElem);
     }
 
@@ -157,6 +158,17 @@
           // determine option value, e.g. optionId = 'olives', option = { label: 'Olives', price: 2, default: true }
           const option = param.options[optionId];
           console.log(optionId, option);
+          const selector = '.' + paramId + '-' + optionId;
+          const image = thisProduct.element.querySelector(selector);
+          console.log('image', image);
+
+          if(image != null){
+            if(formData[paramId] && formData[paramId].includes(optionId)){
+              image.classList.add(classNames.menuProduct.imageVisible);
+            }else {
+              image.classList.remove(classNames.menuProduct.imageVisible);
+            }
+          }
           // check if there is param with a name of paramId in formData and if it includes optionId
           if(formData[paramId] && formData[paramId].includes(optionId)) {
             // check if the option is not default
