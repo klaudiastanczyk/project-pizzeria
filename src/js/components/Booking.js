@@ -1,10 +1,13 @@
-import { templates } from '../settings.js';
+import { templates, select } from '../settings.js';
+import AmountWidget from './AmountWidget.js';
 
 
 class Booking{
   constructor(element){
-    this.render(element);
-    // initWidgets();
+    const thisBooking = this;
+    thisBooking.render(element);
+    thisBooking.initWidgets();
+    console.log('this w bookingu', this);
   }
   
   render(element){
@@ -13,6 +16,16 @@ class Booking{
     thisBooking.dom = {};
     thisBooking.dom.wrapper = element;
     thisBooking.dom.wrapper.innerHTML = generatedHTML;
+
+    thisBooking.dom.peopleAmount = document.querySelector(select.booking.peopleAmount);
+    thisBooking.dom.hoursAmount = document.querySelector(select.booking.hoursAmount);
+  }
+
+  initWidgets(){
+    const thisBooking = this;
+
+    thisBooking.people = new AmountWidget(thisBooking.dom.peopleAmount);
+    thisBooking.hours = new AmountWidget(thisBooking.dom.hoursAmount);
   }
 }
 
