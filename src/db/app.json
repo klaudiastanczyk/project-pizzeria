@@ -259,7 +259,7 @@
    "bookings": [ 
      {
         "id": 5,
-        "date": "2022-05-03",
+        "date": "2022-05-12",
         "hour": "18:00",
         "table": 2,
         "repeat": "daily",

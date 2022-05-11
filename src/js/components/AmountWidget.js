@@ -3,14 +3,13 @@ import BaseWidget from './BaseWidget.js';
 
 class AmountWidget extends BaseWidget{
   constructor(element){
-    super(element, 1);
+    super(element, settings.amountWidget.defaultValue);
     const thisWidget = this;
 
     thisWidget.getElements(element);
     thisWidget.initActions();
     thisWidget.renderValue();
     //console.log('Constructor argument ', element);
-    console.log('amountWidget', thisWidget);
   }
 
   getElements(){
@@ -31,14 +30,13 @@ class AmountWidget extends BaseWidget{
     const thisWidget = this;
 
     thisWidget.dom.input.value = thisWidget.value;
-
   }
 
   initActions(){
     const thisWidget = this;
 
     thisWidget.dom.input.addEventListener('change', function(){
-      thisWidget.setValue(thisWidget.input.dom.value);
+      thisWidget.value(thisWidget.input.dom.value);
     });
 
     thisWidget.dom.linkDecrease.addEventListener('click', function(event){
@@ -51,8 +49,7 @@ class AmountWidget extends BaseWidget{
       thisWidget.setValue(thisWidget.value + 1);
     });  
   }
-
-  
+ 
 }
 
 export default AmountWidget;

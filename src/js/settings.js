@@ -99,7 +99,7 @@ export const settings = {
     defaultValue: 1,
     defaultMin: 1,
     defaultMax: 9,
-  }, // CODE CHANGED
+  }, // CODE CHANGED 
   // CODE ADDED START
   cart: {
     defaultDeliveryFee: 20,
@@ -118,9 +118,9 @@ export const settings = {
   db: {
     url: '//localhost:3131',
     product: 'products',
-    order: 'order',
-    booking: 'booking',
-    event: 'event',
+    order: 'orders',
+    booking: 'bookings',
+    event: 'events',
     dateStartParamKey: 'date_gte',
     dateEndParamKey: 'date_lte',
     notRepeatParam: 'repeat=false',
