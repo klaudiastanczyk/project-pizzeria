@@ -120,10 +120,10 @@ const app = {
   },
 
   initCarousel: function(){
-    const thisApp = this;
     const carousel = document.querySelector('.carousel');
     const options = {autoPlay: true};
-    const flikty = new Flickity(carousel, options);
+    // eslint-disable-next-line no-undef
+    new Flickity(carousel, options);
   },
 
   initActions: function(){
