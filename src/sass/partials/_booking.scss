@@ -170,9 +170,13 @@
         top: 0;
         background: $color-dark;
         opacity: 0.4;
-      }
-  
+      }  
     }
+
+    &.clicked {
+      background: rgb(88, 128, 88);
+    }
+
   }
   
   [data-table="1"] {
@@ -198,3 +202,4 @@
   @include flex(row, flex-start, space-between);
   margin: ($base-size * 4) auto;
 }
+
