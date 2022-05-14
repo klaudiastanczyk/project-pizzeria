@@ -102,6 +102,8 @@ const app = {
     thisApp.initCart();
     thisApp.initPages();
     thisApp.initBooking();
+    thisApp.initCarousel();
+    thisApp.initActions();
   },
 
   initCart: function(){
@@ -115,8 +117,27 @@ const app = {
     thisApp.productList.addEventListener('add-to-cart', function(event){
       app.cart.add(event.detail.product); 
     });
-  } 
+  },
 
+  initCarousel: function(){
+    const thisApp = this;
+    const carousel = document.querySelector('.carousel');
+    const options = {autoPlay: true};
+    const flikty = new Flickity(carousel, options);
+  },
+
+  initActions: function(){
+    const thisApp = this;
+    const linkPage = document.querySelectorAll('.top a');
+    for(let linkP of linkPage){
+      linkP.addEventListener('click', function(event){
+        event.preventDefault();
+        const getId = linkP.getAttribute('href');
+        const idWoHash = getId.replace('#', '');
+        thisApp.activatePage(idWoHash);
+      });
+    }
+  }
 };
 
 app.init();
